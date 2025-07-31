@@ -841,3 +841,80 @@ hr {
 .action:hover {
   background-color: rgb(212, 212, 212);
 }
+
+
+/* extra  */
+/* for order page */
+
+.orders-container {
+  padding: 2rem;
+  font-family: sans-serif;
+}
+
+.orders-container h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.orders-info {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.orders-table th,
+.orders-table td {
+  padding: 12px 16px;
+  text-align: left;
+  color: #555;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.orders-table th {
+  font-weight: bold;
+  color: #cc9476; /* muted gray */
+  font-size: 13px;
+}
+
+.no-orders {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.no-orders .btn {
+  margin-top: 1rem;
+  padding: 10px 20px;
+  background-color: #222;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+
+/* buy/sell badge in order page */
+.badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.buyO {
+  background-color: #e3f2fd; 
+  /* background-color: #e0f7e9;  */
+  /* color: #2e7d32; */
+  color: #1565c0;
+}
+
+.sellO {
+  background-color: #ffebee;
+  color: #c62828;
+}

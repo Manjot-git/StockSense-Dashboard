@@ -1,35 +1,42 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-
 import axios from "axios";
 
 import GeneralContext from "./GeneralContext";
-
 import "./BuyActionWindow.css";
 
-const BuyActionWindow = ({ uid }) => {
-  const { closeBuyWindow } = useContext(GeneralContext);
+const SellActionWindow = ({ uid, availableQty }) => {
+  const { closeSellWindow } = useContext(GeneralContext);
+
+
+  console.log("Available Qty for UID", uid, "is", availableQty); // 🔍 Debug this
 
   const [stockQuantity, setStockQuantity] = useState(1);
   const [stockPrice, setStockPrice] = useState(0.0);
+  const [error, setError] = useState("");
 
-  const handleBuyClick = () => {
+  const handleSellClick = () => {
+    if (stockQuantity > availableQty) {
+      setError(`You only have ${availableQty} shares available.`);
+      return;
+    }
+
     axios.post("http://localhost:8080/newOrder", {
       name: uid,
       qty: stockQuantity,
       price: stockPrice,
-      mode: "BUY",
+      mode: "SELL",
     });
 
-    closeBuyWindow();
+    closeSellWindow();
   };
 
   const handleCancelClick = () => {
-    closeBuyWindow();
+    closeSellWindow();
   };
 
   return (
-    <div className="container" id="buy-window" draggable="true">
+    <div className="container sell" id="sell-window" draggable="true">
       <div className="regular-order">
         <div className="inputs">
           <fieldset>
@@ -57,10 +64,11 @@ const BuyActionWindow = ({ uid }) => {
       </div>
 
       <div className="buttons">
-        <span>Margin required ₹{(stockQuantity * stockPrice).toFixed(2)}</span>
+        <span style={{ color: "#333" }}>Estimated proceeds ₹{(stockQuantity * stockPrice).toFixed(2)}</span>
+        {error && <div style={{ color: "red", marginTop: "8px" }}>{error}</div>}
         <div>
-          <Link className="btn btn-blue" onClick={handleBuyClick}>
-            Buy
+          <Link className="btn btn-red" onClick={handleSellClick}>
+            Sell
           </Link>
           <Link to="" className="btn btn-grey" onClick={handleCancelClick}>
             Cancel
@@ -71,4 +79,4 @@ const BuyActionWindow = ({ uid }) => {
   );
 };
 
-export default BuyActionWindow;
+export default SellActionWindow;

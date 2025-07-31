@@ -219,3 +219,23 @@
     color: #fff;
   }
   
+  /* Extra */
+
+  /* Optional: Specific style for Sell window container */
+.sell {
+  border: 1px solid #e12424;
+}
+
+/* Optional: Sell button styling */
+.btn-red {
+  background: #f36868;
+}
+
+.btn-red:hover {
+  background: #fc8a8a;
+}
+
+.container.sell legend {
+  color: #333; /* makes Qty. and Price visible */
+  font-weight: 500;
+}
