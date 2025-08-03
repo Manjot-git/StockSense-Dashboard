@@ -6,12 +6,16 @@ import axios from "axios";
 const Holdings = () => {
   const [allHoldings, setAllHoldings] = useState([]);
 
-  useEffect(() => {
-    axios.get("http://localhost:8080/allHoldings").then((res) => {
-      // console.log(res.data);
-      setAllHoldings(res.data);
-    });
-  }, []);
+ useEffect(() => {
+  axios.get("http://localhost:8080/allHoldings", {
+    withCredentials: true
+  }).then((res) => {
+    setAllHoldings(res.data);
+  }).catch(err => {
+    console.error("Error fetching holdings:", err.response?.data || err.message);
+  });
+}, []);
+
   
   return (
     <>

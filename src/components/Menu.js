@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "../utils/axios";
 
 const Menu = () => {
 
@@ -10,9 +11,23 @@ const Menu = () => {
     setSelectedMenu(index);
   };
 
-  const handleProfileClick = (index) => {
+  const handleProfileClick = () => {
     setIsProfileDropdownOpen(!isProfileDropdownOpen);
   };
+
+
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await axios.get("/user/logout", { withCredentials: true });
+      setIsProfileDropdownOpen(false); // close dropdow
+      window.location.href = "http://localhost:3000/login"; // full redirect to login app
+    } catch (err) {
+      console.error("Logout failed", err);
+    }
+  };
+
 
   const menuClass = "menu";
   const activeMenuClass = "menu selected";
@@ -95,6 +110,21 @@ const Menu = () => {
           <div className="avatar">MK</div>
           <p className="username">USERID</p>
         </div>
+        
+
+        {isProfileDropdownOpen && (
+          <div className="dropdown">
+            <p className="dropdown-item">Settings &nbsp; &nbsp;
+              <i class="fa fa-cog icons" aria-hidden="true"></i>
+            </p>
+            <p className="dropdown-item">My Profile &nbsp;
+              <i class="fa fa-id-badge icons" aria-hidden="true"></i>
+            </p>
+            <button onClick={handleLogout} className="dropdown-item logout-btn">Logout &nbsp;
+              <i class="fa fa-sign-out" aria-hidden="true"></i>
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

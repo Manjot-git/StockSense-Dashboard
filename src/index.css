@@ -918,3 +918,83 @@ hr {
   background-color: #ffebee;
   color: #c62828;
 }
+
+/* For profile drop down */
+
+.menu-container {
+  position: relative;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.avatar {
+  background-color: #fce4ec;
+  color: #b71c1c;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.username {
+  font-weight: 500;
+  color: #333;
+}
+
+.dropdown {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  width: 160px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  padding: 8px 0;
+}
+
+.dropdown-item {
+  display: block;
+  padding: 10px 16px;
+  font-size: 15px;
+  color: #333;
+  background-color: transparent;
+  border: none;
+  text-align: left;
+  width: auto;
+  margin: 4px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(0, 0, 0, 0.05); /* subtle grey */
+}
+
+.logout-btn {
+  color: #e74c3c;           /* Red color for danger action */
+  font-weight: bold;
+  border-top: 1px solid #eee;
+  padding-top: 8px;
+  margin-top: 8px;
+}
+
+.logout-btn:hover {
+  background-color: #fcebea; /* Light red background on hover */
+  color: #c0392b;
+}
+
+.icons{
+  color: rgba(75, 67, 67, 0.325);  
+}
