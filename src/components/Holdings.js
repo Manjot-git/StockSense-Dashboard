@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+// import axios from "axios";
+import axios from "../../utils/axios";
 
 // import { holdings } from "../data/data";
 
@@ -8,7 +9,7 @@ const Holdings = () => {
   const [allHoldings, setAllHoldings] = useState([]);
 
  useEffect(() => {
-  axios.get("http://localhost:8080/allHoldings", {
+  axios.get("/allHoldings", {
     withCredentials: true
   }).then((res) => {
     setAllHoldings(res.data);

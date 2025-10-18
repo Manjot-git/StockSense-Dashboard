@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
+import axios from "../../utils/axios"; //for deploy
 
 import GeneralContext from "./GeneralContext";
 import "./BuyActionWindow.css";
@@ -21,7 +22,7 @@ const SellActionWindow = ({ uid, availableQty }) => {
       return;
     }
 
-    axios.post("http://localhost:8080/newOrder", {
+    axios.post("/newOrder", {
       name: uid,
       qty: stockQuantity,
       price: stockPrice,

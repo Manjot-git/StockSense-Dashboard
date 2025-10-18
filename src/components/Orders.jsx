@@ -20,14 +20,15 @@
 
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
+import axios from "../../utils/axios"; // import the axiosInstance
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/orders")
+      .get("/orders") // relative path, no need for localhost
       .then((res) => setOrders(res.data))
       .catch((err) => console.log(err));
   }, []);
