@@ -25,7 +25,7 @@ const Menu = () => {
       const loginURL =
       window.location.hostname === "localhost"
         ? "http://localhost:3000/login"    // local frontend
-        : "https://stock-sense-frontend-ten.vercel.app/login"; // deployed frontend
+        : "https://stock-sense-frontend-ten.vercel.app"; // deployed frontend
 
       window.location.href = loginURL;
  // full redirect to login app
