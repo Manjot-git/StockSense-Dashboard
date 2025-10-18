@@ -16,7 +16,12 @@ const Home = () => {
       } catch (err) {
         if (isMounted) {
           console.error("Auth failed", err);
-          window.location.href = "http://localhost:3000/login"; // full redirect to login app
+          const loginURL =
+            window.location.hostname === "localhost"
+              ? "http://localhost:3000/login"
+              : "https://stock-sense-frontend-ten.vercel.app/login";
+
+          window.location.href = loginURL; // full redirect to login app
         }
       }
     };
