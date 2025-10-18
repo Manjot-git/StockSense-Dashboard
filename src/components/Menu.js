@@ -22,7 +22,13 @@ const Menu = () => {
     try {
       await axios.get("/user/logout", { withCredentials: true });
       setIsProfileDropdownOpen(false); // close dropdow
-      window.location.href = "http://localhost:3000/login"; // full redirect to login app
+      const loginURL =
+      window.location.hostname === "localhost"
+        ? "http://localhost:3000/login"    // local frontend
+        : "https://stock-sense-frontend-ten.vercel.app/login"; // deployed frontend
+
+      window.location.href = loginURL;
+ // full redirect to login app
     } catch (err) {
       console.error("Logout failed", err);
     }
