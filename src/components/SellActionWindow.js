@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 // import axios from "axios";
-import axios from "../../utils/axios"; //for deploy
+import axios from "../utils/axios"; //for deploy
 
 import GeneralContext from "./GeneralContext";
 import "./BuyActionWindow.css";

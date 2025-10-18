@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 
 // import axios from "axios";
-import axios from "../../utils/axios";//for deployment
+import axios from "../utils/axios"//for deployment
 
 import GeneralContext from "./GeneralContext";
 

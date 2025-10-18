@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 // import axios from "axios";
-import axios from "../../utils/axios";//for deployment
+import axios from "../utils/axios"//for deployment
 
 // import { positions } from "../data/data";
 
